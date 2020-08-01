@@ -13,9 +13,8 @@ class RingBuffer:
             self.storage.add_to_tail(item)
             self.oldest_node = self.storage.head
         elif self.storage.length == self.capacity:
-            temp = self.oldest_node.get_next()
             self.oldest_node.value = item
-            self.oldest_node = temp
+            self.oldest_node = self.oldest_node.get_next()
             if self.oldest_node is None:
                 self.oldest_node = self.storage.head
 
@@ -59,4 +58,6 @@ r.append('c')
 r.append('d')
 r.append('e')
 r.append('f')
+r.append('g')
+r.append('h')
 print(r.get())
